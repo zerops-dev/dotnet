@@ -15,5 +15,5 @@ dotnet:
       - dpkg -i packages-microsoft-prod.deb
       - rm packages-microsoft-prod.deb
       - apt update
-      - apt install -y dotnet-runtime-6.0
+      - apt install -y dotnet-runtime-6.0 aspnetcore-runtime-6.0
     start: app/dnet
