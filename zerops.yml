@@ -1,20 +1,9 @@
 dotnet:
   build:
-    prepare:
-      - wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-      - dpkg -i packages-microsoft-prod.deb
-      - rm packages-microsoft-prod.deb
-      - apt update
-      - apt install -y dotnet-sdk-6.0
+    base: [dotnet@6]
     build:
       - dotnet build -o app
     deploy:
       - app
   run:
-    prepare:
-      - wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-      - dpkg -i packages-microsoft-prod.deb
-      - rm packages-microsoft-prod.deb
-      - apt update
-      - apt install -y dotnet-runtime-6.0 aspnetcore-runtime-6.0
     start: cd app && dotnet dnet.dll
