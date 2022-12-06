@@ -1,6 +1,7 @@
 dotnet:
-  base: dotnet@6
   build:
+    base: 
+      - dotnet@6
     build:
       - dotnet build -o app
     deploy:
